@@ -1,0 +1,303 @@
+
+DBMS - DATABASE MANAGEMENT SYSTEM
+
+
+RDBMS - REGLUAR DBMS (GIVES DATA IN TABULAR FORM)
+
+
+DEFINATION OF DBMS - 
+
+- Stores data in a structured way
+
+- Allows users to insert, update, delete, and retrieve data
+
+- Ensures data security, integrity, and consistency 
+
+#QUEARY TO ADD DATABASE AND U SAVED DATABASE --
+
+CREATE DATABASE SCHOOL;
+USE SCHOOL;
+
+
+CREATE IS USED TO CREATE A  DATABASE.
+SHOW IS USED TO SEE ALL AVAILABLE DATABASE IN SQL.
+"INSERT INTO" IS USED TO GIVE VALUE IN SQL.
+";" MUST BE USED AFTER EVERY QUERY UNLESS QUERY WILL NOT RUN.
+AS WE ADD "PRIMARY KEY" AFTER THE COLUMN BAR THEN THE VALUE IN THAT COLUMN WILL NOT REPEAT.
+WE ALSO HAVE TO ADD QUERY "SELECT * FROM PERSONAL_INFO;" AFTER EVERY CHANGES TO SEE THE CHANGES.
+
+
+#FOR MAKING TABLE
+
+CREATE TABLE STUDENTS(
+STUDENTS ID varchar(100),AGE int,CITY varchar(100)); #FOR ADDING COLUMNS
+
+
+# TO INSERT VALUES IN TABLE
+
+INSERT INTO PERSONAL_INFO VALUES("PUNIT",18,"JHAJJAR");
+INSERT INTO PERSONAL_INFO VALUES("RISHI",18,"GURUGRAM");
+INSERT INTO PERSONAL_INFO VALUES("AAYUSH",19,"BAHADURGARH");
+INSERT INTO PERSONAL_INFO VALUES("YASH",18,"MANESHAR"); 
+
+
+#OUTPUT
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| PUNIT  |   18 | JHAJJAR     |
+| RISHI  |   18 | GURUGRAM    |
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+#TO CHECK OUR TABLE COULUMNS
+
+SELECT * FROM PERSONAL_INFO;
+
+
+# TO CHECK THE PARTICULAR COLUMN
+
+SELECT NAME FROM PERSONAL_INFO
+
+# WHERE "NAME" IS COLUMN NAME OF TABLE
+
+#OUTPUT
+
++--------+
+| NAME   |
++--------+
+| PUNIT  |
+| RISHI  |
+| AAYUSH |
+| YASH   |
++--------+
+
+
+#FOR SELECTING A PARTICULAR COLUMN ARTICLE
+
+SELECT NAME FROM PERSONAL_INFO WHERE Address = "JHAJJAR";
+
+# "ADDRESS" IS A COLUMN FROM WHERE I HAVE TO CHECK DATA
+# "NAME" IS A COLUMN OF WHICH COLUMN'S DATA IS SHOWN.
+
+
+#OUTPUT
+
++-------+
+| NAME  |
++-------+
+| PUNIT |
++-------+
+
+
+# TO CHANGE  SOMETHING IN BETWEEN 2 COLUMNS
+  
+UPDATE PERSONAL_INFO SET ADDRESS = "HIMANCHAL" WHERE NAME = "RISHI";
+SELECT * FROM PERSONAL_INFO;
+
+# WHERE "ADDRESS" IS A COLUMN IN WHICH I HAVE TO DO SOME CHANGES.
+# AND "NAME" IS A COLUMN OF WHICH THE ADDRESS IS CHANGED.
+
+
+#OUTPUT
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| PUNIT  |   18 | JHAJJAR     |
+| RISHI  |   18 | GURUGRAM    |
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | GURUGRAM    |
++--------+------+-------------+
+
+
+#TO DELETE A SPECIFIC COLUMN
+
+DELETE FROM PERSONAL_INFO WHERE ADDRESS = "JHAJJAR";
+SELECT * FROM PERSONAL_INFO;
+
+# "ADDRESS " IS A COLUMN AND "JHAJJAR" IS A ARTICLE WHICH I HAVE TO DELETE
+
+#OUTPUT
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| RISHI  |   18 | GURUGRAM    |
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+DDL = (DATA DEFINATION LANGUAGE) - TO CHANGE THE STRUCTURE OF DATA.
+
+1) - CREATE - TO CREATE A DATABASE.
+2) - ALTER - TO CHANGE IN THE EXISTING TABLE.
+3) - DROP - REMOVE THE DATABASE.
+4) - TRUNCATE - REMOVE THE TABLE.
+
+
+DML = (DATA MANUPULATION LANGUAGE) - TO CHANGE THE DATA IN TABLE.
+
+1) SELECT - FOR SHOWING OUTPUT
+2) UPDATE - FOR UPDATION IN TABLE.
+3) INSERT - FOR ADDING VALUES IN COLUMN.
+4) DELETE - FOR REMOVING SOMETHING IN TABLE.
+
+# TO APPLY LOGIC OPERTORS ( AND , OR , NOT ).
+
+SELECT * FROM PERSONAL_INFO WHERE AGE >=18 AND AGE <= 18;
+SELECT * FROM PERSONAL_INFO WHERE AGE > 18 OR AGE < 18;
+SELECT * FROM PERSONAL_INFO WHERE NOT AGE < 18;
+SELECT * FROM PERSONAL_INFO;
+
+
+#OUTPUT WHEN 'AND' LOGIC OPERATOR USED
+
++-------+------+----------+
+| NAME  | AGE  | ADDRESS  |
++-------+------+----------+
+| PUNIT |   18 | JHAJJAR  |
+| RISHI |   18 | GURUGRAM |
+| YASH  |   18 | MANESHAR |
++-------+------+----------+
+
+#OUTPUT WHEN 'AND' LOGIC OPERATOR USED
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| AAYUSH |   19 | BAHADURGARH |
++--------+------+-------------+
+
+#OUTPUT WHEN 'AND' LOGIC OPERATOR USED
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| PUNIT  |   18 | JHAJJAR     |
+| RISHI  |   18 | GURUGRAM    |
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+#TO SELECT NAME FROM A PARTICULAR ALPHABET.
+
+SELECT * FROM PERSONAL_INFO WHERE NAME LIKE 'a%'; #ONLY PRINT THOSE NAMES WHOSE STARTING ALPHABET IS 'A'.
+SELECT * FROM PERSONAL_INFO WHERE NAME LIKE '_a%'; #ONLY PRINT THOSE NAMES WHOSE 2ND ALPHABET IS 'A'.
+SELECT * FROM PERSONAL_INFO;
+
+
+
+#OUTPUT WHEN "SELECT * FROM PERSONAL_INFO WHERE NAME LIKE 'a%';"
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| AAYUSH |   19 | BAHADURGARH |
++--------+------+-------------+
+
+
+#OUTPUT WHEN "SELECT * FROM PERSONAL_INFO WHERE NAME LIKE '_a%";
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+#TO GET COLUMNS IN ALPHABETIC ORDER FROM A-Z & Z-A OF SPECIFIC COLUMN
+
+SELECT * FROM PERSONAL_INFO ORDER BY NAME; #FROM A-Z
+SELECT * FROM PERSONAL_INFO ORDER BY NAME DESC; #FROM Z-A
+SELECT * FROM PERSONAL_INFO;
+
+
+#OUTPUT FROM A-Z
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| AAYUSH |   19 | BAHADURGARH |
+| PUNIT  |   18 | JHAJJAR     |
+| RISHI  |   18 | GURUGRAM    |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+#OUTPUT FROM Z-A
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| YASH   |   18 | MANESHAR    |
+| RISHI  |   18 | GURUGRAM    |
+| PUNIT  |   18 | JHAJJAR     |
+| AAYUSH |   19 | BAHADURGARH |
++--------+------+-------------+
+
+
+#TO OBTAIN LIMITED COLUMN IN TABLE. 
+
+SELECT * FROM PERSONAL_INFO LIMIT 4; #IT WILL GIVE HEADEST '4' COLUMN OF TABLE 
+SELECT * FROM PERSONAL_INFO;
+
+#OUTPUT
+
++--------+------+-------------+
+| NAME   | AGE  | ADDRESS     |
++--------+------+-------------+
+| PUNIT  |   18 | JHAJJAR     |
+| RISHI  |   18 | GURUGRAM    |
+| AAYUSH |   19 | BAHADURGARH |
+| YASH   |   18 | MANESHAR    |
++--------+------+-------------+
+
+
+#TO GET PARTICULAR DATA FROM TABLE 
+
+SELECT COUNT(*) FROM PERSONAL_INFO; # IT TELLES US TOTAL NO OF ROWS IN TABLE (HORIZONTALLY)
+SELECT AVG(NAME) FROM PERSONAL_INFO; #IT TELLS US THE MIDDLEST COLOUM FROM THE 'NAME' COLUMN.
+SELECT MIN(NAME) FROM PERSONAL_INFO; #IT TELLS US THE UPPERMOST COLUMN OF TABLE
+SELECT MIN(NAME) FROM PERSONAL_INFO; #IT TELLS US THE LOWEST VALUE OF TABLE
+
+
+#OUTPUT FROM 301 LINE
+
++----------+
+| COUNT(*) |
++----------+
+|        4 |
++----------+
+
+
+
+#OUTPUT FROM 302 LINE
+
++-----------+
+| AVG(NAME) |
++-----------+
+|         0 |
++-----------+
+
+
+#OUTPUT FROM 303 LINE
+
++-----------+
+| MIN(NAME) |
++-----------+
+| AAYUSH    |
++-----------+
+
+
++-----------+
+| MIN(NAME) |
++-----------+
+| AAYUSH    |
++-----------+
